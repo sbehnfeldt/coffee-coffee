@@ -5,15 +5,17 @@
 <?php
 $bodyClasses = ['coffee-class'];
 if ( is_home()) :
-    array_push( $bodyClasses, 'coffee-home' );
+    array_push( $bodyClasses, 'coffee-blog' );
 endif;
 if ( is_front_page()) :
     array_push( $bodyClasses, 'coffee-front' );
 endif;
 ?>
+
 <body <?php body_class($bodyClasses); ?>>
     <?php wp_nav_menu(['theme_location' => 'primary']) ?>
 
+    <h1>Default Page Template</h1>
     <?php
     if ( have_posts ()):
         while (have_posts()): the_post();?>
