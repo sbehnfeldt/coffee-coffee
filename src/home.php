@@ -3,28 +3,33 @@
 <?php get_header(); ?>
 
 <?php
-$bodyClasses = ['coffee-class'];
-if (is_front_page()) :
-    array_push($bodyClasses, 'coffee-front');
+$bodyClasses = [ 'coffee-class' ];
+if ( is_front_page() ) :
+	array_push( $bodyClasses, 'coffee-front' );
 endif;
 ?>
 
-<body <?php body_class($bodyClasses); ?>>
-<?php wp_nav_menu(['theme_location' => 'primary']) ?>
-<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->widgth; ?>" alt="" />
+<body <?php body_class( $bodyClasses ); ?>>
 
-<h1>Blog Index</h1>
-<?php
+<div class="container">
+	<img src="<?php header_image(); ?>" width="100%" alt=""/>
+	<?php include 'navbar.php'; ?>
 
-if (have_posts()):
-    while (have_posts()): the_post(); ?>
-        <?php get_template_part('content', get_post_format()); ?>
-        <?php
-    endwhile;
-else:
-    echo('No posts found');
-endif;
-?>
+	<h1>Blog Index</h1>
+	<?php if ( have_posts() ):
+		while ( have_posts() ): the_post(); ?>
+			<div class="row">
+				<div class="col-xs-12">
+					<?php get_template_part( 'content' ); ?>
+				</div>
+			</div>
+		<?php endwhile; ?>
+		<?php
+	else:
+		echo( 'No posts found' );
+	endif;
+	?>
+</div>
 
 <?php get_footer(); ?>
 </body>
