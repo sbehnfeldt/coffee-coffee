@@ -1,0 +1,23 @@
+body {
+    
+}
+
+.navbar {
+    background-color: #eee;
+}
+article {
+    padding-bottom: 20px;
+    border-bottom: dotted 1px #dddddd;
+}
+
+article div.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.thumbnail-img {
+    float: left;
+
+    margin-right: 20px;
+    margin-bottom: 20px;
+}

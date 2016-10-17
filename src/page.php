@@ -14,25 +14,32 @@ endif;
 
 <body <?php body_class( $bodyClasses ); ?>>
 <div class="container">
-	<img src="<?php header_image(); ?>" width="100%" alt=""/>
+	<div class="row">
 
-	<?php get_template_part( 'navbar' ); ?>
+		<img src="<?php header_image(); ?>" width="100%" alt=""/>
 
-	<?php
-	if ( have_posts() ):
-		while ( have_posts() ): the_post(); ?>
-			<h3><?php the_title(); ?></h3>
-			<?php the_content(); ?>
-			<?php the_tags(); ?>
-			<hr/>
+		<?php get_template_part( 'navbar' ); ?>
+
+		<div class="col-xs-10 col-med-12">
 			<?php
-		endwhile;
-	else:
-		echo( 'Nope' );
-	endif;
-	?>
-	<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+			if ( have_posts() ):
+				while ( have_posts() ): the_post(); ?>
+					<h3><?php the_title(); ?></h3>
+					<?php the_content(); ?>
+					<?php the_tags(); ?>
+					<?php
+				endwhile;
+			else:
+				echo( 'Nope' );
+			endif;
+			?>
+		</div>
+
+		<div class="col-xs-2">
+			<?php get_sidebar(); ?>
+		</div>
+	</div>
+	<?php get_footer(); ?>
 </div><!-- .container -->
 </body>
 </html>

@@ -3,7 +3,7 @@
 		<?php wp_nav_menu( [
 			'theme_location'  => 'primary',
 			'container'       => 'nav',
-			'container_class' => 'navbar navbar-dark bg-inverse',
+			'container_class' => 'navbar navbar-light bg-faded',
 			'menu_class'      => "nav navbar-nav"
 		] ) ?>
 	</div>
