@@ -14,13 +14,17 @@ endif;
 
 <body <?php body_class( $bodyClasses ); ?>>
 <div class="container">
-	<?php if (has_post_thumbnail()): ?>
-		<?php the_post_thumbnail('large'); ?>
-	<?php else: ?>
-		<img src="<?php header_image(); ?>" width="100%" alt=""/>
-	<?php endif; ?>
-
 	<?php get_template_part( 'navbar' ); ?>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<?php if ( has_post_thumbnail() ): ?>
+				<?php the_post_thumbnail( 'large' ); ?>
+			<?php else: ?>
+				<img src="<?php header_image(); ?>" width="100%" alt=""/>
+			<?php endif; ?>
+		</div>
+	</div>
 
 	<?php
 	if ( have_posts() ):
@@ -36,6 +40,7 @@ endif;
 		echo( 'Nope' );
 	endif;
 	?>
+
 
 	<?php get_sidebar(); ?>
 

@@ -16,9 +16,9 @@ endif;
 <div class="container">
 	<div class="row">
 
+		<?php get_template_part( 'navbar' ); ?>
 		<img src="<?php header_image(); ?>" width="100%" alt=""/>
 
-		<?php get_template_part( 'navbar' ); ?>
 
 		<div class="col-xs-10 col-med-12">
 			<?php

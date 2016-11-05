@@ -13,8 +13,8 @@ endif;
 
 <div class="container">
 	<div class="row">
-		<img src="<?php header_image(); ?>" width="100%" alt=""/>
 		<?php include 'navbar.php'; ?>
+		<img src="<?php header_image(); ?>" width="100%" alt=""/>
 
 		<h1>Blog Index</h1>
 		<?php if ( have_posts() ):

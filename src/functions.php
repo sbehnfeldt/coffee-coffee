@@ -10,14 +10,16 @@ add_action( 'after_setup_theme', function () {
 } );
 
 
-// Include scripts and stylesheets
+// Include scripts and style sheets
 add_action( 'wp_enqueue_scripts', function () {
-	wp_enqueue_style( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', [ ], '3.3.7' );
-	wp_enqueue_style( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"', [ ], '3.3.7' );
+	// Style sheets
+	wp_enqueue_style( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', [ ], '3.3.7', 'all' );
+	wp_enqueue_style( 'bootstrap-theme', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"', [ ], '3.3.7', 'all' );
 	wp_enqueue_style( 'coffeestyle', get_template_directory_uri() . '/css/coffee-coffee.css', [ ], '1.0.0', 'all' );
 
+	// JavaScripts
 	wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array( 'jquery' ), '3.1.1', true ); // we need the jquery library for bootsrap js to function
-	wp_enqueue_script( 'bootstrap-js', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array( 'jquery' ), '3.3.7', true ); // all the bootstrap javascript goodness
+	wp_enqueue_script( 'bootstrapjs', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array( 'jquery' ), '3.3.7', true ); // all the bootstrap javascript goodness
 	wp_enqueue_script( 'coffeejs', get_template_directory_uri() . '/js/coffee-coffee.js', [ 'jquery' ], '1.0.0', true );
 } );
 

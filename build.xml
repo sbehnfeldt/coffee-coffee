@@ -1,30 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Coffee,Coffee WordPress Theme" default="build" basedir="." description="">
+<project name="Coffee,Coffee WordPress Theme" default="package" basedir="." description="">
 
-    <property name="srcDir" value="${project.basedir}/src" />
-    <property name="buildDir" value="${project.basedir}/build" />
+    <property name="package" value="coffee-coffee"/>
+    <property name="version" value="0.1"/>
+    <property name="srcDir" value="${project.basedir}/src"/>
+    <property name="buildDir" value="${project.basedir}/build"/>
+    <property name="distDir" value="${project.basedir}/dist"/>
 
 
-    <fileset dir="${srcDir}" id="srcfiles" />
+    <!-- ============================================  -->
+    <!-- Target: build                                 -->
+    <!-- ============================================  -->
+    <target name="pre-build" description="Make directory for build output">
+        <echo msg="Creating build directory..."/>
+        <mkdir description="Create directory for output of 'build' target" dir="${buildDir}"/>
+    </target>
 
-    <target name="mkdirBuildDir" description="Make directory for build output">
-        <echo msg="Creating build directory..." />
-        <mkdir description="Create directory for output of 'build' target" dir="${buildDir}" />
+    <target name="build" description="Translate source files into output files" depends="pre-build">
+        <echo msg="Building..."/>
+        <copy description="Copy source files to build directory" todir="${buildDir}">
+            <fileset dir="${srcDir}">
+                <include name="*.php"/>
+                <include name="screenshot.png"/>
+                <include name="style.css"/>
+                <include name="inc/**.*"/>
+                <include name="css/**.css"/>
+                <include name="js/**.js"/>
+            </fileset>
+        </copy>
     </target>
 
 
-    <target name="build" description="Translate source files into output files" depends="mkdirBuildDir">
-        <echo msg="Building..." />
-        <copy description="Copy source files to build directory"  todir="${buildDir}">
-            <fileset dir="${srcDir}">
-                <include name="*.php" />
-                <include name="screenshot.png" />
-                <include name="style.css" />
-                <include name="inc/**.*" />
-                <include name="css/**.css" />
-                <include name="js/**.js" />
+    <!-- ============================================  -->
+    <!-- Target: package                               -->
+    <!-- ============================================  -->
+    <target name="package" description="Package output files into a distributable zip file" depends="build">
+        <echo msg="Packaging distributable..."/>
+        <mkdir dir="${distDir}"/>
+        <zip destfile="${distDir}/${package}.${version}.zip">
+            <fileset dir="${buildDir}">
+                <include name="**"/>
             </fileset>
-        </copy>
+        </zip>
+    </target>
+
+
+    <!-- ============================================  -->
+    <!-- Target: clean                                 -->
+    <!-- ============================================  -->
+    <target name="clean">
+        <delete dir="${distDir}" />
+        <delete dir="${buildDir}" />
     </target>
 
 </project>

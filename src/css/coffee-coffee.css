@@ -2,9 +2,6 @@ body {
     
 }
 
-.navbar {
-    background-color: #eee;
-}
 article {
     padding-bottom: 20px;
     border-bottom: dotted 1px #dddddd;
@@ -13,6 +10,10 @@ article {
 article div.row {
     margin-left: 0px;
     margin-right: 0px;
+}
+
+.navbar {
+    background-color: #eee;
 }
 
 .thumbnail-img {
