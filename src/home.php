@@ -1,3 +1,6 @@
+<?php
+/* Template used to render the blog posts index, whether it is the "home" page or not. */
+?>
 <!doctype html>
 <html lang="en">
 <?php get_header(); ?>
@@ -12,27 +15,21 @@ endif;
 <body <?php body_class( $bodyClasses ); ?>>
 
 <div class="container">
-	<div class="row">
-		<?php include 'navbar.php'; ?>
-		<img src="<?php header_image(); ?>" width="100%" alt=""/>
+	<?php include 'navbar.php'; ?>
+	<img src="<?php header_image(); ?>" width="100%" alt=""/>
 
-		<h1>Blog Index</h1>
-		<?php if ( have_posts() ):
-			while ( have_posts() ): the_post(); ?>
-				<div class="row">
-					<div class="col-xs-12">
-						<?php get_template_part( 'content' ); ?>
-					</div>
-				</div>
-			<?php endwhile; ?>
-			<?php
-		else:
-			echo( 'No posts found' );
-		endif;
-		?>
-	</div>
+	<h1>Blog Index</h1>
+	<?php if ( have_posts() ):
+		while ( have_posts() ): the_post(); ?>
+			<?php get_template_part( 'article', 'home' ); ?>
+		<?php endwhile; ?>
+		<?php
+	else:
+		echo( 'No posts found' );
+	endif;
+	?>
+	<?php get_footer(); ?>
 </div>
 
-<?php get_footer(); ?>
 </body>
 </html>

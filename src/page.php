@@ -14,12 +14,9 @@ endif;
 
 <body <?php body_class( $bodyClasses ); ?>>
 <div class="container">
+	<?php get_template_part( 'navbar' ); ?>
+	<img src="<?php header_image(); ?>" width="100%" alt=""/>
 	<div class="row">
-
-		<?php get_template_part( 'navbar' ); ?>
-		<img src="<?php header_image(); ?>" width="100%" alt=""/>
-
-
 		<div class="col-xs-10 col-med-12">
 			<?php
 			if ( have_posts() ):

@@ -16,35 +16,36 @@ endif;
 <div class="container">
 	<?php get_template_part( 'navbar' ); ?>
 
-	<div class="row">
-		<div class="col-xs-12">
-			<?php if ( has_post_thumbnail() ): ?>
-				<?php the_post_thumbnail( 'large' ); ?>
-			<?php else: ?>
-				<img src="<?php header_image(); ?>" width="100%" alt=""/>
-			<?php endif; ?>
-		</div>
+	<div class="col-xs-12">
+		<?php if ( has_post_thumbnail() ): ?>
+			<?php the_post_thumbnail( 'large' ); ?>
+		<?php else: ?>
+			<img src="<?php header_image(); ?>" width="100%" alt=""/>
+		<?php endif; ?>
 	</div>
 
-	<?php
-	if ( have_posts() ):
-		while ( have_posts() ): the_post(); ?>
-			<h3><?php the_title(); ?></h3>
-			<small>Posted on: <?php the_time( 'F j, Y' ); ?> in <?php the_category(); ?></small>
-			<?php the_content(); ?>
-			<?php the_tags(); ?>
-			<hr/>
+	<div class="row">
+		<div class="col-xs-10 col-med-12">
 			<?php
-		endwhile;
-	else:
-		echo( 'Nope' );
-	endif;
-	?>
-
-
-	<?php get_sidebar(); ?>
-
+			if ( have_posts() ):
+				while ( have_posts() ): the_post(); ?>
+					<h3><?php the_title(); ?></h3>
+					<small>Posted on: <?php the_time( 'F j, Y' ); ?> in <?php the_category(); ?></small>
+					<?php the_content(); ?>
+					<?php the_tags(); ?>
+					<hr/>
+					<?php
+				endwhile;
+			else:
+				echo( 'Nope' );
+			endif;
+			?>
+		</div>
+		<div class="col-xs-2">
+			<?php get_sidebar(); ?>
+		</div>
+	</div>
 	<?php get_footer(); ?>
-</div>
+</div><!-- /div.container -->
 </body>
 </html>
