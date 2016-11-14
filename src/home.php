@@ -13,10 +13,9 @@ endif;
 ?>
 
 <body <?php body_class( $bodyClasses ); ?>>
-
 <div class="container">
-	<?php include 'navbar.php'; ?>
-	<img src="<?php header_image(); ?>" width="100%" alt=""/>
+	<?php get_template_part( 'navbar' ); ?>
+	<img class="page-banner" src="<?php header_image(); ?>" width="100%" alt=""/>
 
 	<h1>Blog Index</h1>
 	<?php if ( have_posts() ):

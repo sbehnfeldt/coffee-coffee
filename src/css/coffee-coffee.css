@@ -1,5 +1,5 @@
 body {
-    
+
 }
 
 article {
@@ -13,7 +13,18 @@ article div.row {
 }
 
 .navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 99;
+
     background-color: #eee;
+}
+
+img.wp-post-image,
+img.page-banner {
+    margin-top: 5px;
 }
 
 .thumbnail-img {

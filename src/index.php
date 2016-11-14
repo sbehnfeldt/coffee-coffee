@@ -15,12 +15,11 @@ endif;
 <body <?php body_class( $bodyClasses ); ?>>
 <div class="container">
 	<?php get_template_part( 'navbar' ); ?>
-
 	<div class="col-xs-12">
 		<?php if ( has_post_thumbnail() ): ?>
 			<?php the_post_thumbnail( 'large' ); ?>
 		<?php else: ?>
-			<img src="<?php header_image(); ?>" width="100%" alt=""/>
+			<img class="page-banner" src="<?php header_image(); ?>" width="100%" alt=""/>
 		<?php endif; ?>
 	</div>
 
