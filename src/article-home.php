@@ -1,6 +1,15 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<?php
+$today = date('r');
+$published = get_the_date( $r );
+$diff = round(( strtotime( $today) - strtotime( $published ))/(24*60*60), 0 );
+$postClass = $diff < 33  ? 'newArticle' : null;
+?>
+<article id="post-<?php the_ID(); ?>" <?php post_class($postClass); ?>>
 	<header class="entry-header">
 		<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+		<h3><?php echo $today ?></h3>
+		<h3><?php echo $published  ?></h3>
+		<h3><?php echo $diff ?></h3>
 		<small>Posted on: <?php the_time( 'F j, Y' ); ?> in <?php echo get_the_category_list( ', ' ); ?>
 			<br/>
 			<?php echo 'Post format:' . get_post_format(); ?>

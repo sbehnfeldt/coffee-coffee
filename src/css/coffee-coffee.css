@@ -12,6 +12,8 @@ article div.row {
     margin-right: 0px;
 }
 
+article.newArticle {  }
+
 .navbar {
     background-color: #eee;
 }

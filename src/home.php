@@ -19,8 +19,10 @@ endif;
 	<img src="<?php header_image(); ?>" width="100%" alt=""/>
 
 	<h1>Blog Index</h1>
+
 	<?php if ( have_posts() ):
 		while ( have_posts() ): the_post(); ?>
+			<h1>Post count: <?php $posts = get_posts(); echo count($posts); ?></h1>
 			<?php get_template_part( 'article', 'home' ); ?>
 		<?php endwhile; ?>
 		<?php
