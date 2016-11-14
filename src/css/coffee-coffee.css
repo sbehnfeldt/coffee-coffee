@@ -4,15 +4,31 @@ body {
 
 article {
     padding-bottom: 20px;
-    border-bottom: dotted 1px #dddddd;
+    background-color: #efefef;
+    height: 100%;
 }
 
+article h1 {
+    font-size: 180%;
+}
 article div.row {
     margin-left: 0px;
     margin-right: 0px;
 }
 
-article.newArticle {  }
+article.newArticle {
+    background-color: #deefde;
+}
+
+article.newArticle span.newArticle {
+    position: relative;
+    top: -5px;
+    left: -5px;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #0f0;
+    color: #080;
+}
 
 .navbar {
     background-color: #eee;

@@ -11,9 +11,8 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="#" class="navbar-brand"><?php bloginfo('name'); ?></a>
+					<a href="<?php echo bloginfo( 'url' ); ?>" class="navbar-brand"><?php bloginfo('name'); ?></a>
 				</div>
-
 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<?php wp_nav_menu( [
@@ -22,7 +21,6 @@
 						'container_class' => 'navbar navbar-light bg-faded',
 						'menu_class'      => "nav navbar-nav navbar-right"
 					] ) ?>
-
 				</div>
 			</div>
 		</nav>
