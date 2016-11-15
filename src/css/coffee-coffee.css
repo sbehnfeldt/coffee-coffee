@@ -1,19 +1,57 @@
 body {
-    
-}
 
+}
+div.row {
+    margin-bottom: 20px;
+}
 article {
+    padding-left: 10px;
+    padding-right: 10px;
     padding-bottom: 20px;
-    border-bottom: dotted 1px #dddddd;
+    background-color: #efefef;
+    height: 100%;
 }
 
+article h1 {
+    font-size: 180%;
+}
 article div.row {
     margin-left: 0px;
     margin-right: 0px;
 }
 
+article.newArticle {
+    background-color: #deefde;
+}
+article span {
+    position: relative;
+    top: -5px;
+    left: -5px;
+}
+article span.badge {
+    font-weight: bold;
+    background-color: #0ff;
+    color: #060;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
 .navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 99;
+
     background-color: #eee;
+}
+
+img.wp-post-image,
+img.page-banner {
+    margin-top: 5px;
 }
 
 .thumbnail-img {
