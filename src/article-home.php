@@ -2,12 +2,14 @@
 $today     = date( 'r' );
 $published = get_the_date( $r );
 $diff      = round( ( strtotime( $today ) - strtotime( $published ) ) / ( 24 * 60 * 60 ), 0 );
-$postClass = $diff < 33 ? 'newArticle' : null;
+$postClass = $diff < get_option( 'coffee-coffee-age_limit' ) ? 'newArticle' : null;
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( $postClass ); ?>>
 	<header class="entry-header">
 		<?php if ( $postClass == 'newArticle' ) : ?>
-			<span class="newArticle">New!</span>
+			<span class="badge">New!</span>
+			<?php else : ?>
+			<span>&nbsp;</span>
 		<?php endif; ?>
 		<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 		<small>Posted on: <?php the_time( 'F j, Y' ); ?> in <?php echo get_the_category_list( ', ' ); ?>

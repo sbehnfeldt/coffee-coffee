@@ -44,3 +44,13 @@ add_action( 'widgets_init', function () {
 		'after_title'   => '</h1>'
 	] );
 } );
+
+// Add page to set theme options
+add_action( 'admin_menu', function() {
+	add_options_page( 'Coffee Coffee Theme Options', 'Theme Options', 'manage_options', 'coffee-coffee-identifier', function() {
+		if ( !current_user_can( 'manage_options' )) {
+			wp_die( __( 'You do not have sufficient permissions to access this page' ));
+		}
+		get_template_part( 'theme', 'options' );
+	});
+});

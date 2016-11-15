@@ -1,8 +1,12 @@
 body {
     
 }
-
+div.row {
+    margin-bottom: 20px;
+}
 article {
+    padding-left: 10px;
+    padding-right: 10px;
     padding-bottom: 20px;
     background-color: #efefef;
     height: 100%;
@@ -19,16 +23,21 @@ article div.row {
 article.newArticle {
     background-color: #deefde;
 }
-
-article.newArticle span.newArticle {
+article span {
     position: relative;
     top: -5px;
     left: -5px;
-    padding: 10px;
-    font-weight: bold;
-    background-color: #0f0;
-    color: #080;
 }
+article span.badge {
+    font-weight: bold;
+    background-color: #0ff;
+    color: #060;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 
 .navbar {
     background-color: #eee;
