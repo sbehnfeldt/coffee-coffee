@@ -1,5 +1,9 @@
 body {  }
 
+div.row {
+    margin-bottom: 20px;
+}
+
 article {
     padding-left: 10px;
     padding-right: 10px;
