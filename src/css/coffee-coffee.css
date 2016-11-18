@@ -15,7 +15,17 @@ article {
     height: 100%;
     font-size: 110%;
     line-height: 1.5;
+
+    transition: box-shadow 0.1s ease;
+}
+
+article:hover {
+    border: 2px solid #888;
     box-shadow: 10px 10px 5px #dedede;
+
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 18px;
 }
 
 article header {
@@ -57,9 +67,15 @@ article div.row {
 
 article.newArticle {
     background-color: #deefde;
-    box-shadow: 10px 10px 5px #cddecd;
 }
 
+article.newArticle:hover {
+    border: 2px solid #0f6;
+    box-shadow: 10px 10px 5px #cddecd;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 18px;
+}
 
 .navbar {
     position: fixed;
