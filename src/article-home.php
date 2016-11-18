@@ -12,10 +12,7 @@ $postClass = $diff < get_option( 'coffee-coffee-age_limit' ) ? 'newArticle' : nu
 			<span>&nbsp;</span>
 		<?php endif; ?>
 		<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-		<small>Posted on: <?php the_time( 'F j, Y' ); ?> in <?php echo get_the_category_list( ', ' ); ?>
-			<br/>
-			<?php echo 'Post format:' . get_post_format(); ?>
-		</small>
+		<small>Posted on: <?php the_time( 'F j, Y' ); ?> in <?php echo get_the_category_list( ', ' ); ?></small>
 	</header>
 	<div class="row">
 		<?php if ( has_post_thumbnail() ) : ?>
