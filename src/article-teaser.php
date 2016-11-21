@@ -1,4 +1,8 @@
 <?php
+/*
+ * Display the "teaser" for a blog post: that part of the post that displays on the blog index, linking to the full
+ * post.
+ */
 $today     = date( 'r' );
 $published = get_the_date( $r );
 $diff      = round( ( strtotime( $today ) - strtotime( $published ) ) / ( 24 * 60 * 60 ), 0 );

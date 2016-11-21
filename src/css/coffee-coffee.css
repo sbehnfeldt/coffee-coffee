@@ -1,8 +1,10 @@
 body {  }
 
-div#post-teasers {
-    margin-top: 30px;
+img {
+    max-width: 100%;
+    height: auto;
 }
+
 div.row {
     margin-bottom: 20px;
 }
@@ -98,3 +100,8 @@ img.page-banner {
     margin-right: 20px;
     margin-bottom: 20px;
 }
+
+div#post-teasers {
+    margin-top: 30px;
+}
+

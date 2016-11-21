@@ -1,3 +1,8 @@
+<?php
+/**
+ * Page template of last resort
+ */
+?>
 <!doctype html>
 <html lang="en">
 <?php get_header(); ?>
@@ -29,6 +34,7 @@ endif;
 			if ( have_posts() ):
 				while ( have_posts() ): the_post(); ?>
 					<h3><?php the_title(); ?></h3>
+					<h1>index.php</h1>
 					<small>Posted on: <?php the_time( 'F j, Y' ); ?> in <?php the_category(); ?></small>
 					<?php the_content(); ?>
 					<?php the_tags(); ?>

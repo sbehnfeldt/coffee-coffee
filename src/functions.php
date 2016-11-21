@@ -4,9 +4,14 @@
 //require get_template_directory() . '/inc/function-admin.php';
 
 
-// Activate menu
+// Theme setup
 add_action( 'after_setup_theme', function () {
+	// Add a menu location
 	register_nav_menu( 'primary', 'Header Navigation' );
+
+	// Add featured image support
+	add_theme_support( 'post-thumbnails' );
+	add_image_size( 'small-thumbnail', 180, 120, true );
 } );
 
 
@@ -29,7 +34,6 @@ add_theme_support( 'custom-header' );
 add_theme_support( 'custom-background' );
 add_theme_support( 'menus' );
 add_theme_support( 'post-formats', [ 'status', 'image', 'gallery', 'video' ] );
-add_theme_support( 'post-thumbnails' );
 
 // Register the sidebar
 add_action( 'widgets_init', function () {
@@ -46,11 +50,11 @@ add_action( 'widgets_init', function () {
 } );
 
 // Add page to set theme options
-add_action( 'admin_menu', function() {
-	add_options_page( 'Coffee Coffee Theme Options', 'Theme Options', 'manage_options', 'coffee-coffee-identifier', function() {
-		if ( !current_user_can( 'manage_options' )) {
-			wp_die( __( 'You do not have sufficient permissions to access this page' ));
+add_action( 'admin_menu', function () {
+	add_options_page( 'Coffee Coffee Theme Options', 'Theme Options', 'manage_options', 'coffee-coffee-identifier', function () {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( __( 'You do not have sufficient permissions to access this page' ) );
 		}
 		get_template_part( 'theme', 'options' );
-	});
-});
+	} );
+} );
