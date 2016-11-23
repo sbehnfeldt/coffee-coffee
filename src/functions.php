@@ -12,6 +12,15 @@ add_action( 'after_setup_theme', function () {
 	// Add featured image support
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'small-thumbnail', 180, 120, true );
+
+	// Add post format support
+	add_theme_support( 'post-formats', [ 'status', 'image', 'gallery', 'video' ] );
+
+
+	// Specify which functionality the theme will support
+	add_theme_support( 'custom-header' );
+	add_theme_support( 'custom-background' );
+	add_theme_support( 'menus' );
 } );
 
 
@@ -29,11 +38,6 @@ add_action( 'wp_enqueue_scripts', function () {
 } );
 
 
-// Specify which functionality the theme will support
-add_theme_support( 'custom-header' );
-add_theme_support( 'custom-background' );
-add_theme_support( 'menus' );
-add_theme_support( 'post-formats', [ 'status', 'image', 'gallery', 'video' ] );
 
 // Register the sidebar
 add_action( 'widgets_init', function () {
@@ -58,3 +62,22 @@ add_action( 'admin_menu', function () {
 		get_template_part( 'theme', 'options' );
 	} );
 } );
+
+
+// ref: http://wordpress.stackexchange.com/questions/121489/split-content-and-gallery
+function strip_shortcode_gallery( $content ) {
+	preg_match_all( '/' . get_shortcode_regex() . '/s', $content, $matches, PREG_SET_ORDER );
+
+	if ( ! empty( $matches ) ) {
+		foreach ( $matches as $shortcode ) {
+			if ( 'gallery' === $shortcode[2] ) {
+				$pos = strpos( $content, $shortcode[0] );
+				if ( false !== $pos ) {
+					return substr_replace( $content, '', $pos, strlen( $shortcode[0] ) );
+				}
+			}
+		}
+	}
+
+	return $content;
+}

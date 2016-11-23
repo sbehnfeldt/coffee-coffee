@@ -5,11 +5,24 @@ img {
     height: auto;
 }
 
-div.row {
-    margin-bottom: 20px;
+/*
+ * Styling navigation bars
+ */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 99;
+
+    background-color: #eee;
 }
 
-article {
+/*
+ * Styling the teasers on the blog index
+ */
+article.teaser {
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 20px;
@@ -21,7 +34,7 @@ article {
     transition: box-shadow 0.1s ease;
 }
 
-article:hover {
+article.teaser:hover {
     border: 2px solid #888;
     box-shadow: 10px 10px 5px #dedede;
 
@@ -30,19 +43,20 @@ article:hover {
     padding-bottom: 18px;
 }
 
-article header {
+article.teaser header {
     position: relative;
     padding-top: 10px;
+    padding-bottom: 20px;
 }
 
 
-article header span {
+article.teaser header span {
     position: absolute;
     top: -15px;
     left: -5px;
 }
 
-article header span.badge{
+article.teaser header span.badge{
     font-weight: bold;
     background-color: #0f8;
     color: #060;
@@ -53,25 +67,25 @@ article header span.badge{
 
 }
 
-article header div.thumbnail {
+article.teaser header div.thumbnail {
     margin-bottom: 0px;
 }
 
-article header h1 {
+article.teaser header h1 {
     margin-bottom: 0px;
     font-size: 160%;
 }
 
-article div.row {
+article.teaser div.row {
     margin-left: 0px;
     margin-right: 0px;
 }
 
-article.newArticle {
+article.teaser.newArticle {
     background-color: #deefde;
 }
 
-article.newArticle:hover {
+article.teaser.newArticle:hover {
     border: 2px solid #0f6;
     box-shadow: 10px 10px 5px #cddecd;
     padding-left: 8px;
@@ -79,14 +93,40 @@ article.newArticle:hover {
     padding-bottom: 18px;
 }
 
-.navbar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 99;
 
-    background-color: #eee;
+
+/*
+ * Styling a single post
+  */
+img.wp-post-image.pull-left {
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+/*
+ * Styling gallery posts
+ */
+div.gallery {
+    background-color: #222;
+}
+
+div.gallery {
+    padding: 25px;
+    color: white;
+}
+
+
+div.gallery img {
+    border: none !important;
+}
+
+div.gallery img:hover {
+    border: 1px solid #ccffcc !important;
+}
+
+
+div.row {
+    margin-bottom: 20px;
 }
 
 img.wp-post-image,
@@ -105,3 +145,6 @@ div#post-teasers {
     margin-top: 30px;
 }
 
+body.single-post {
+    padding-top: 50px;
+}

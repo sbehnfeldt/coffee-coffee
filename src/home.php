@@ -24,15 +24,15 @@ endif;
 				<div>No Posts Found</div>
 			<?php elseif ( 1 == $nPosts ) :
 				the_post();
-				get_template_part( 'article', 'teaser' );
+				get_template_part( 'teaser', get_post_format() );
 			elseif ( 2 == $nPosts ) : ?>
 				<div class="row">
 					<div class="col-xs-12 col-sm-6">
 						<?php
 						the_post();
-						get_template_part( 'article', 'teaser' );
+						get_template_part( 'teaser', get_post_format() );
 						the_post();
-						get_template_part( 'article', 'teaser' );
+						get_template_part( 'teaser', get_post_format() );
 						?>
 					</div>
 				</div>
@@ -42,17 +42,18 @@ endif;
 					<div class="row">
 						<div class="col-xs-12 col-sm-4">
 							<?php the_post();
-							get_template_part( 'article', 'teaser' );
+							get_template_part( 'teaser', get_post_format() );
 							if ( ! have_posts() ): break; endif; ?>
 						</div>
 						<div class="col-xs-12 col-sm-4">
 							<?php the_post();
-							get_template_part( 'article', 'teaser' );
+							get_template_part( 'teaser', get_post_format() );
 							if ( ! have_posts() ): break; endif; ?>
 						</div>
 						<div class="col-xs-12 col-sm-4">
 							<?php the_post();
-							get_template_part( 'article', 'teaser' ); ?>
+							get_template_part( 'teaser', get_post_format() );
+							?>
 						</div>
 					</div>
 				<?php endwhile; ?>
