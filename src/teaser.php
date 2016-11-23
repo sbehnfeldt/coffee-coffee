@@ -15,7 +15,7 @@ if ( has_post_format() ) {
 <article id="post-<?php the_ID(); ?>" <?php post_class( $postClass ); ?>>
 
 	<header class="entry-header">
-		<?php if ( $postClass == 'newArticle' ) : ?>
+		<?php if ( false !== array_search( 'newArticle', $postClass )) : ?>
 			<span class="badge">New!</span>
 		<?php endif; ?>
 		<?php if ( has_post_thumbnail() ) : ?>
@@ -24,7 +24,7 @@ if ( has_post_format() ) {
 			</div>
 		<?php endif; ?>
 		<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-		<small>Posted on: <?php the_time( 'F j, Y' ); ?> in <?php echo get_the_category_list( ', ' ); ?></small>
+		<small>Posted on: <?php the_time( 'F j, Y' ); ?> in <?php echo get_the_category_list( ', ' ); ?></small><br />
 	</header>
 
 	<div class="row">

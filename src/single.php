@@ -23,7 +23,6 @@ endif;
 		<?php get_template_part( 'navbar' ); ?>
 
 		<h1><?php the_title(); ?></h1>
-		<small><?php echo __FILE__; ?></small>
 		<br/>
 		<small>Posted on: <?php the_time( 'F j, Y' ); ?> in <?php the_category(); ?></small>
 	</header>
@@ -32,22 +31,23 @@ endif;
 		<?php
 		if ( have_posts() ):
 			while ( have_posts() ): the_post(); ?>
-				<?php if ( has_post_thumbnail() ): ?>
-					<?php the_post_thumbnail( 'medium', array( 'class' => 'pull-left ' ) ); ?>
+				<div class="row">
+					<?php if ( has_post_thumbnail() ): ?>
+						<?php the_post_thumbnail( 'medium', array( 'class' => 'pull-left ' ) ); ?>
+					<?php endif; ?>
+
+					<?php
+					$gallery = get_post_gallery();
+					$content = strip_shortcode_gallery( get_the_content() );
+					$content = str_replace( ']]>', ']]&gt;', apply_filters( 'the_content', $content ) );
+					?>
+					<div class="content">
+						<?php echo $content; ?>
+					</div>
+				</div>
+				<?php if ( $gallery ): ?>
+					<div class="row gallery"><?php echo $gallery ?></div>
 				<?php endif; ?>
-
-				<?php
-				$gallery = get_post_gallery();
-				$content = strip_shortcode_gallery( get_the_content() );
-				$content = str_replace( ']]>', ']]&gt;', apply_filters( 'the_content', $content ) );
-				?>
-				<div class="content">
-					<?php echo $content; ?>
-				</div>
-
-				<div class="gallery">
-					<?php echo $gallery ?>
-				</div>
 				<?php the_tags(); ?>
 				<hr/>
 				<?php
