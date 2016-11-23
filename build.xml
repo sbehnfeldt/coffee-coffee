@@ -37,7 +37,7 @@
     <target name="package" description="Package output files into a distributable zip file" depends="build">
         <echo msg="Packaging distributable..."/>
         <mkdir dir="${distDir}"/>
-        <zip destfile="${distDir}/${package}.${version}.zip" prefix="${package}">
+        <zip destfile="${distDir}/${package}.${version}.zip" prefix="${package}/">
             <fileset dir="${buildDir}">
                 <include name="**"/>
             </fileset>
