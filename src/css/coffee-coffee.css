@@ -1,4 +1,5 @@
-body {  }
+body {
+}
 
 img {
     max-width: 100%;
@@ -19,7 +20,6 @@ img {
     background-color: #eee;
 }
 
-
 /********************************************************************************
  * Blog Index Carousel
  ********************************************************************************/
@@ -28,8 +28,43 @@ img {
 }
 
 #latest-posts-carousel .item {
-    height: 600px;
     overflow: hidden;
+    height: 90px;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width: 320px) {
+    #latest-posts-carousel .item {
+        height: 160px;
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 480px) {
+    #latest-posts-carousel .item {
+        height: 240px;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+    #latest-posts-carousel .item {
+        height: 384px;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+    #latest-posts-carousel .item {
+        height: 496px;
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
+    #latest-posts-carousel .item {
+        height: 600px;
+    }
 }
 
 #latest-posts-carousel .item .carousel-caption {
@@ -48,12 +83,11 @@ img {
     padding: 2%;
 }
 
-
 /********************************************************************************
  * Blog Index Contents
  ********************************************************************************/
 .blog-index-contents {
-    margin-top: 55px;   /* Leave room for sticky nav menu bar */
+    margin-top: 55px; /* Leave room for sticky nav menu bar */
 }
 
 /********************************************************************************
@@ -86,14 +120,13 @@ article.teaser header {
     padding-bottom: 20px;
 }
 
-
 article.teaser header span {
     position: absolute;
     top: -15px;
     left: -5px;
 }
 
-article.teaser header span.badge{
+article.teaser header span.badge {
     font-weight: bold;
     background-color: #0f8;
     color: #060;
@@ -130,8 +163,6 @@ article.teaser.newArticle:hover {
     padding-bottom: 18px;
 }
 
-
-
 /*
  * Styling a single post
   */
@@ -152,7 +183,6 @@ div.gallery {
     color: white;
 }
 
-
 div.gallery img {
     border: none !important;
 }
@@ -160,7 +190,6 @@ div.gallery img {
 div.gallery img:hover {
     border: 1px solid #ccffcc !important;
 }
-
 
 div.row {
     margin-bottom: 20px;
