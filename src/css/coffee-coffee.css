@@ -19,9 +19,39 @@ img {
     background-color: #eee;
 }
 
-/*
+
+/********************************************************************************
+ * Blog Index Carousel
+ ********************************************************************************/
+#latest-posts-carousel {
+    background-color: #222222;
+}
+
+#latest-posts-carousel .item {
+    height: 600px;
+    overflow: hidden;
+}
+
+#latest-posts-carousel .item .carousel-caption {
+    color: white;
+    background-color: #222;
+    opacity: .8;
+}
+
+#latest-posts-carousel .item .carousel-caption a {
+    color: limegreen;
+}
+
+#latest-posts-carousel .item img {
+    width: 100%;
+    height: auto;
+    padding: 2%;
+}
+
+
+/********************************************************************************
  * Styling the teasers on the blog index
- */
+ ********************************************************************************/
 article.teaser {
     padding-left: 10px;
     padding-right: 10px;
