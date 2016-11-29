@@ -16,7 +16,7 @@ endif;
 <div class="container">
 	<?php get_template_part( 'navbar' ); ?>
 
-	<div class="container blog-index-contents">
+	<div class="blog-index-contents">
 		<?php if ( get_option( 'coffee-coffee-use_blog_index_carousel' ) ):
 			get_template_part( 'blogIndexCarousel' );
 		endif; ?>

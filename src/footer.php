@@ -1,4 +1,4 @@
-<div class="row">
+<div class="container">
 	<footer>
 		<hr/>
 		<p>This is my footer</p>
