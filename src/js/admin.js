@@ -2,22 +2,22 @@
 ;(function (global, $) {
     'use strict';
 
-    var $ThemeOptions = (function(){
+    var $ThemeOptions = (function () {
         var $form,
             $useCarouselCheckbox,
-            $options,
+            $blogIndexCarouselOptions,
             publicApi;
 
-        var init = function(selector) {
+        var init = function (selector) {
             $form = $(selector);
-            $useCarouselCheckbox = $form.find( 'input[name=useBlogIndexCarousel]');
-            $options = $form.find('div.options' );
+            $useCarouselCheckbox = $form.find('input[name=useBlogIndexCarousel]');
+            $blogIndexCarouselOptions = $form.find('div.blogIndexCarouselOptions');
 
             $useCarouselCheckbox.on('click', function () {
                 if ($(this).prop('checked')) {
-                    $options.removeClass('hidden');
+                    $blogIndexCarouselOptions.show();
                 } else {
-                    $options.addClass('hidden');
+                    $blogIndexCarouselOptions.hide();
                 }
             });
         };

@@ -3,18 +3,24 @@
 
 	<?php
 	$count = 0;
-	$indicators = '<li data-target="#latest-posts-carousel" data-slide-to="' . $count++ . '" class="active" />'; ?>
+	$indicators = '';
+	if ( '' != get_option( 'coffee-coffee_use-site-header-slide' ) ) {
+		$indicators = '<li data-target="#latest-posts-carousel" data-slide-to="' . $count ++ . '" class="active" />';
+	}
+	?>
 
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner" role="listbox">
 
-		<div class="item active">
-			<img class="page-banner" src="<?php header_image(); ?>" width="100%" alt="" / >
-			<div class="carousel-caption">
-				<h1 class="entry-title"><a href="<?php bloginfo( 'wpurl' ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-				<p><?php bloginfo( 'description' ); ?></p>
+		<?php if ( '' != get_option( 'coffee-coffee_use-site-header-slide' ) ): ?>
+			<div class="item active">
+				<img class="page-banner" src="<?php header_image(); ?>" width="100%" alt="" / >
+				<div class="carousel-caption">
+					<h1 class="entry-title"><a href="<?php bloginfo( 'wpurl' ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+					<p><?php bloginfo( 'description' ); ?></p>
+				</div>
 			</div>
-		</div>
+		<?php endif; ?>
 
 		<?php
 		if ( have_posts() ):
@@ -23,7 +29,7 @@
 				if ( ! has_post_thumbnail() ): continue; endif;
 				?>
 				<!-- ?php get_template_part( 'slider', 'home' ); ? -->
-				<div class="item">
+				<div class="item<?php if ( 0 === $count ): echo ' active'; endif; ?>">
 					<?php the_post_thumbnail( 'full' ); ?>
 					<div class="carousel-caption">
 						<h1><a href="<?php echo the_permalink(); ?>"><?php echo get_the_title(); ?></a></h1>
@@ -31,7 +37,7 @@
 					</div>
 				</div>
 
-				<?php $indicators .= '<li data-target="#latest-posts-carousel" data-slide-to="' . $count . '" />' ?>
+				<?php $indicators .= '<li data-target="#latest-posts-carousel" data-slide-to="' . $count . '"' . ( 0 === $count ? ' class="active"' : '' ) . ' />' ?>
 				<?php $count ++; endwhile; ?>
 			<?php
 		endif;
@@ -52,5 +58,6 @@
 		<span class="sr-only">Next</span>
 	</a>
 </div>
+<h1>cjb<?php echo get_option( 'coffee-coffee_use-blog-header-slide' ); ?>cjb</h1>
 
 
