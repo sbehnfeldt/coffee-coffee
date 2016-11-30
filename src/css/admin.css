@@ -1,0 +1,11 @@
+form[name=optionsForm] {  }
+
+form[name=optionsForm] div.options {
+    -webkit-transition: display .25s;
+    -moz-transition: display .25s;
+    -ms-transition: display .25s;
+    -o-transition: display .25s;
+    transition: display .25s;
+}
+
+

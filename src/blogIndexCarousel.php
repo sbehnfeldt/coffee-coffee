@@ -1,7 +1,9 @@
 <!-- Latest blog posts carousel -->
 <div id="latest-posts-carousel" class="carousel slide" data-ride="carousel">
 
-	<?php $indicators = '<li data-target="#latest-posts-carousel" data-slide-to="0" class="active" />'; ?>
+	<?php
+	$count = 0;
+	$indicators = '<li data-target="#latest-posts-carousel" data-slide-to="' . $count++ . '" class="active" />'; ?>
 
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner" role="listbox">
@@ -14,7 +16,7 @@
 			</div>
 		</div>
 
-		<?php $count = 1;
+		<?php
 		if ( have_posts() ):
 			while ( have_posts() ):
 				the_post();
