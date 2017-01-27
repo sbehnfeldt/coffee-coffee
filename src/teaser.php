@@ -6,7 +6,7 @@
 $today       = date( 'r' );
 $published   = get_the_date( $r );
 $diff        = round( ( strtotime( $today ) - strtotime( $published ) ) / ( 24 * 60 * 60 ), 0 );
-$postClass   = ( $diff < get_option( 'coffee-coffee-age_limit' ) ) ? [ 'newArticle' ] : [ null ];
+$postClass   = ( $diff < get_option( 'coffee-coffee_age-limit' ) ) ? [ 'newArticle' ] : [ null ];
 $postClass[] = "teaser";
 if ( has_post_format() ) {
 	$postClass[] = ( "teaser" . '-' . get_post_format() );

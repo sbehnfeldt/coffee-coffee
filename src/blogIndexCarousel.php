@@ -58,6 +58,5 @@
 		<span class="sr-only">Next</span>
 	</a>
 </div>
-<h1>cjb<?php echo get_option( 'coffee-coffee_use-blog-header-slide' ); ?>cjb</h1>
 
 
