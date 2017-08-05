@@ -48,7 +48,7 @@ endif;
 		?>
 	</div>
 
-	<div class="col-xs-2">
+	<div class="col-xs-2 sidebar">
 		<?php get_sidebar(); ?>
 	</div>
 

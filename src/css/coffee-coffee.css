@@ -1,3 +1,8 @@
+/* Position
+   Size/Layout
+   Presentation
+*/
+
 body {
 }
 
@@ -214,3 +219,41 @@ div#post-teasers {
 body.single-post {
     padding-top: 50px;
 }
+
+
+/********************************************************************************
+ * Styling the sidebar
+ ********************************************************************************/
+
+.col-xs-2.sidebar {
+    padding: 0;
+    background-color: #ddd;
+}
+
+#sidebar .widget {
+
+    width:100%;
+
+    border: 1px solid #ccc;
+}
+
+
+
+#sidebar .widget h1 {
+    text-align: center;
+    font-size: 16px;
+}
+
+#sidebar .widget ul {
+    padding-top: initial;
+    padding-bottom: initial;
+    padding-left: 5px;
+    padding-right: 2px;
+
+
+    list-style: none;
+}
+
+#sidebar .widget ul li {
+}
+
