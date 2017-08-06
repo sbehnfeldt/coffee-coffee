@@ -22,43 +22,18 @@ endif;
 		endif; ?>
 
 		<div id="post-teasers">
-			<?php $nPosts = get_posts();
-			if ( 0 == $nPosts ) : ?>
+			<?php if ( ! have_posts() ) : ?>
 				<div>No Posts Found</div>
-			<?php elseif ( 1 == $nPosts ) :
-				the_post();
-				get_template_part( 'teaser', get_post_format() );
-			elseif ( 2 == $nPosts ) : ?>
-				<div class="row">
-					<div class="col-xs-12 col-sm-6">
-						<?php
-						the_post();
-						get_template_part( 'teaser', get_post_format() );
-						the_post();
-						get_template_part( 'teaser', get_post_format() );
-						?>
-					</div>
-				</div>
-
 			<?php else: ?>
+				<?php $count = 0; ?>
 				<?php while ( have_posts() ): ?>
-					<div class="row">
-						<div class="col-xs-12 col-sm-4">
-							<?php the_post();
-							get_template_part( 'teaser', get_post_format() );
-							if ( ! have_posts() ): break; endif; ?>
-						</div>
-						<div class="col-xs-12 col-sm-4">
-							<?php the_post();
-							get_template_part( 'teaser', get_post_format() );
-							if ( ! have_posts() ): break; endif; ?>
-						</div>
-						<div class="col-xs-12 col-sm-4">
-							<?php the_post();
-							get_template_part( 'teaser', get_post_format() );
-							?>
-						</div>
+					<?php if ( 0 === $count % 3 ) : ?><div class="row"><?php endif; ?>
+					<div class="col-xs-12 col-sm-4">
+						<?php the_post();
+						get_template_part( 'teaser', get_post_format() );
+						if ( ! have_posts() ): break; endif; ?>
 					</div>
+					<?php $count++; if ( 0 === $count % 3 ): ?></div><?php endif; ?>
 				<?php endwhile; ?>
 			<?php endif; ?>
 		</div>
