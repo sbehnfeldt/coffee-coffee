@@ -2,11 +2,11 @@
 <div id="latest-posts-carousel" class="carousel slide" data-ride="carousel">
 
 	<?php
-	$count = 0;
 	$indicators = '';
 	if ( '' != get_option( 'coffee-coffee_use-site-header-slide' ) ) {
 		$indicators = '<li data-target="#latest-posts-carousel" data-slide-to="' . $count ++ . '" class="active" />';
 	}
+	$maxSlides = get_option( 'coffee-coffee_max-slides' );
 	?>
 
 	<!-- Wrapper for slides -->
@@ -16,7 +16,8 @@
 			<div class="item active">
 				<img class="page-banner" src="<?php header_image(); ?>" width="100%" alt="" / >
 				<div class="carousel-caption">
-					<h1 class="entry-title"><a href="<?php bloginfo( 'wpurl' ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+					<h1 class="entry-title"><a href="<?php bloginfo( 'wpurl' ); ?>"><?php bloginfo( 'name' ); ?></a>
+					</h1>
 					<p><?php bloginfo( 'description' ); ?></p>
 				</div>
 			</div>
@@ -24,6 +25,7 @@
 
 		<?php
 		if ( have_posts() ):
+			$count = 0;
 			while ( have_posts() ):
 				the_post();
 				if ( ! has_post_thumbnail() ): continue; endif;
@@ -36,9 +38,12 @@
 						<p><?php echo the_excerpt(); ?></p>
 					</div>
 				</div>
-
 				<?php $indicators .= '<li data-target="#latest-posts-carousel" data-slide-to="' . $count . '"' . ( 0 === $count ? ' class="active"' : '' ) . ' />' ?>
-				<?php $count ++; endwhile; ?>
+				<?php
+				$count ++;
+				if ( $maxSlides && ( $count >= $maxSlides ) ) : break; endif;
+
+			endwhile; ?>
 			<?php
 		endif;
 		?>

@@ -19,6 +19,7 @@ endif;
 	<div class="blog-index-contents">
 		<?php if ( get_option( 'coffee-coffee_use-blog-index-carousel' ) ):
 			get_template_part( 'blogIndexCarousel' );
+			rewind_posts();
 		endif; ?>
 
 		<div id="post-teasers">
@@ -33,7 +34,8 @@ endif;
 						get_template_part( 'teaser', get_post_format() );
 						if ( ! have_posts() ): break; endif; ?>
 					</div>
-					<?php $count++; if ( 0 === $count % 3 ): ?></div><?php endif; ?>
+					<?php $count ++;
+					if ( 0 === $count % 3 ): ?></div><?php endif; ?>
 				<?php endwhile; ?>
 			<?php endif; ?>
 		</div>

@@ -2,9 +2,11 @@
 if ( 'POST' === $_SERVER['REQUEST_METHOD'] ) {
 	$useBlogIndexCarousel = $_POST['useBlogIndexCarousel'];
 	$useSiteHeaderSlide   = $_POST['useSiteHeaderSlide'];
+	$maxSlides            = $_POST['maxSliders'];
 	$ageLimit             = $_POST['ageLimit'];
 	update_option( 'coffee-coffee_use-blog-index-carousel', $useBlogIndexCarousel );
 	update_option( 'coffee-coffee_use-site-header-slide', $useSiteHeaderSlide );
+	update_option( 'coffee-coffee_max-slides', $maxSlides );
 	update_option( 'coffee-coffee_age-limit', $ageLimit );
 	?>
 	<div class="updated">
@@ -13,6 +15,7 @@ if ( 'POST' === $_SERVER['REQUEST_METHOD'] ) {
 <?php } else {
 	$useBlogIndexCarousel = get_option( 'coffee-coffee_use-blog-index-carousel' );
 	$useSiteHeaderSlide   = get_option( 'coffee-coffee_use-site-header-slide' );
+	$maxSlides            = get_option( 'coffee-coffee_max-slides' );
 	$ageLimit             = get_option( 'coffee-coffee_age-limit' );
 }
 ?>
@@ -30,6 +33,10 @@ if ( 'POST' === $_SERVER['REQUEST_METHOD'] ) {
 			</div>
 		</div>
 
+		<p>
+			<?php _e( 'Max Slides in Carousel: ' ); ?>
+			<input type="text" name="maxSliders" value="<?php echo $maxSlides; ?>"> slides.
+		</p>
 		<p>
 			<?php _e( 'New Article Age Limit: ' ); ?>
 			<input type="text" name="ageLimit" value="<?php echo $ageLimit; ?>"> days.
