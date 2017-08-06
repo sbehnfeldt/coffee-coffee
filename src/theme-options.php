@@ -26,21 +26,23 @@ if ( 'POST' === $_SERVER['REQUEST_METHOD'] ) {
 			<input type="checkbox"
 			       name="useBlogIndexCarousel" <?php if ( $useBlogIndexCarousel ) : echo ' checked'; endif; ?> />
 			<?php _e( 'Use blog index carousel: ' ); ?>
-			<div class="blogIndexCarouselOptions<?php if ( ! $useBlogIndexCarousel ) : echo ' hidden'; endif ?>">
+
+			<div class="blogIndexCarouselOptions"<?php if ( ! $useBlogIndexCarousel ) : echo 'disabled'; endif ?>>
 				<input type="checkbox"
-				       name="useSiteHeaderSlide" <?php if ( $useSiteHeaderSlide ) : echo ' checked'; endif ?> />
+				       name="useSiteHeaderSlide" <?php if ( $useSiteHeaderSlide ) : echo ' checked'; endif; if ( ! $useBlogIndexCarousel ) : echo 'disabled'; endif; ?>/>
 				<?php _e( 'Use blog header image in carousel: ' ); ?>
+				<p>
+					<?php _e( 'Max Slides in Carousel: ' ); ?>
+					<input type="text" name="maxSliders" value="<?php echo $maxSlides; ?>" <?php if ( ! $useBlogIndexCarousel ) : echo 'disabled'; endif; ?>> slides.
+				</p>
+				<p>
+					<?php _e( 'New Article Age Limit: ' ); ?>
+					<input type="text" name="ageLimit" value="<?php echo $ageLimit; ?>" <?php if ( ! $useBlogIndexCarousel ) : echo 'disabled'; endif; ?>> days.
+				</p>
 			</div>
 		</div>
 
-		<p>
-			<?php _e( 'Max Slides in Carousel: ' ); ?>
-			<input type="text" name="maxSliders" value="<?php echo $maxSlides; ?>"> slides.
-		</p>
-		<p>
-			<?php _e( 'New Article Age Limit: ' ); ?>
-			<input type="text" name="ageLimit" value="<?php echo $ageLimit; ?>"> days.
-		</p>
+
 		<p class="submit">
 			<input type="submit" name="Submit" class="button button-primary"
 			       value="<?php esc_attr_e( 'Save Changes' ) ?>"/>

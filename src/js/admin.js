@@ -15,9 +15,9 @@
 
             $useCarouselCheckbox.on('click', function () {
                 if ($(this).prop('checked')) {
-                    $blogIndexCarouselOptions.show();
+                    $blogIndexCarouselOptions.find( 'input').prop( 'disabled', false );
                 } else {
-                    $blogIndexCarouselOptions.hide();
+                    $blogIndexCarouselOptions.find( 'input').prop( 'disabled', true );
                 }
             });
         };
